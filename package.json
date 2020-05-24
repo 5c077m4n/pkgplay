@@ -20,7 +20,7 @@
     "build:prod": "webpack --env.prod",
     "clean": "rimraf dist/ .eslintcache",
     "format": "prettier --write",
-    "lint": "eslint . --cache --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint --cache --fix 'src/**/*.{js,jsx,ts,tsx}'",
     "prepare": "run-s build:prod lint format test",
     "start": "node dist/index.js",
     "test": "jest",

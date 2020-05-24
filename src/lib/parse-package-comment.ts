@@ -1,4 +1,4 @@
-export function parsePackageComment(fileContent: string): object {
+export function parsePackageComment(fileContent: string): any {
 	const [
 		_,
 		packageJsonString,
