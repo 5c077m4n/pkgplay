@@ -8,6 +8,11 @@ How many times did you need to automate some small task but didn't because you d
 
 Well, now you have your answer! All you need to do is create a file (say `index.js`...) and then run in that dir `npx pkg-play`!
 
+| CLI arg            | Uses                                                           |
+| ------------------ | -------------------------------------------------------------- |
+| `-p` or `--path`   | Get the requested file (may be remote) - default: `./index.js` |
+| `-s` or `--script` | The script that you want to run - default: `start`             |
+
 [Example](examples/1.js)
 
 *Happy scripting! ;)*
