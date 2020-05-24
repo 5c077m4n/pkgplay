@@ -1,11 +1,11 @@
 export function parsePackageComment(fileContent: string): any {
-	const matches =
-		/\/\*\*!\s*package\.json(?:.|\n)*?(\{(?:.|\n)*\})(?:.|\n)*\*\//.exec(
-			fileContent
-		) ?? [];
-	const packageJsonString = matches[1];
-	const packageJson = JSON.parse(
-		packageJsonString[1].replace(/^\s*\*/gm, '')
+	const [
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		_,
+		packageJsonString,
+	] = /\/\*\*!\s*package\.json(?:.|\n)*?(\{(?:.|\n)*\})(?:.|\n)*\*\//.exec(
+		fileContent
 	);
+	const packageJson = JSON.parse(packageJsonString.replace(/^\s*\*/gm, ''));
 	return packageJson;
 }
