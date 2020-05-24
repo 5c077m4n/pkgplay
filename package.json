@@ -19,7 +19,7 @@
     "build": "webpack",
     "build:prod": "webpack --env.prod",
     "clean": "rimraf dist/ .eslintcache",
-    "format": "prettier --write",
+    "format": "prettier --write '**/*.{js,ts}'",
     "lint": "eslint --cache --fix 'src/**/*.{js,jsx,ts,tsx}'",
     "prepare": "run-s build:prod lint format test",
     "start": "node dist/index.js",
@@ -35,7 +35,7 @@
   "lint-staged": {
     "**/package.json": "sort-package-json",
     "src/*.{js,ts}": "eslint --cache --fix",
-    "src/*.{ts,tsx,css}": "prettier --write"
+    "src/*.{ts,js}": "prettier --write"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
