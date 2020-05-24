@@ -1,6 +1,6 @@
 {
   "name": "pkg-play",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A package to inline the package.json file and use small single files for js automation and simple tasks.",
   "keywords": [
     "inline",
