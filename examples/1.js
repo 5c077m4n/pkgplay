@@ -1,10 +1,6 @@
 /**! package.json
  * {
- *      "name": "test file",
- *      "scripts": {
- *          "start": "node ./index.js"
- *      },
- *      dependencies: {
+ *      "dependencies": {
  *          "uuid": "8.1.0"
  *      }
  * }

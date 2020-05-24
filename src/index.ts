@@ -25,9 +25,10 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		}
 
 		const packageJson: any = parsePackageComment(fileContent);
-		packageJson.scripts = packageJson.scripts || {
+		packageJson.scripts = packageJson.scripts ?? {
 			start: 'node ./index.js',
 		};
+		packageJson.name = packageJson.name ?? 'tmp-pkg';
 
 		await Promise.all([
 			fs.writeFile(
@@ -37,7 +38,7 @@ import { parsePackageComment } from './lib/parse-package-comment';
 			fs.writeFile(path.join(tempDirPath, './index.js'), fileContent),
 		]);
 
-		await run('npm', ['install', '.'], { cwd: tempDirPath });
+		await run('npm', ['install', '.', '--silent'], { cwd: tempDirPath });
 		await run('npm', ['run', cliArgs.run], { cwd: tempDirPath });
 	} catch (err) {
 		console.error(err);
