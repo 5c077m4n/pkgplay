@@ -5,11 +5,11 @@ describe('Integration tests', () => {
 		expect(
 			run('node', ['dist/index.js', '-p=examples/1.js'])
 		).resolves.toBeUndefined();
-	});
+	}, 30_000);
 
-	test.skip('NPX test', () => {
+	test('NPX test', () => {
 		expect(
-			run('npx', ['pkg-play', '-p=examples/1.js'])
+			run('npx', ['pkgplay', '-p=examples/1.js'])
 		).resolves.toBeUndefined();
-	});
+	}, 30_000);
 });
