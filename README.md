@@ -6,7 +6,7 @@ A cli tool to run whole npm scripts without having to `npm init` or `npm install
 
 How many times did you need to automate some small task but didn't because you didn't want to go through the hassle of creating a new npm package just for a few seconds?
 
-Well, now you have your answer! All you need to do is create a file (say `index.js`...) and then run in that dir `npx pkgplay`!
+Well, now you have your answer! All you need to do is create a file (say `index.js`...) and after `npm install -g pkgplay` just `pkgplay`!
 
 | CLI arg            | Uses                                                           |
 | ------------------ | -------------------------------------------------------------- |
@@ -31,8 +31,9 @@ console.log(uuidv4());
 ```
 
 And then:
+
 ```bash
-npx pkg-play -p=<filepath>
+pkgplay -p=<filepath>
 ```
 
 *Happy scripting! ;)*
