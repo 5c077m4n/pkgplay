@@ -8,7 +8,7 @@ export function run(
 	return new Promise((resolve, reject) => {
 		const child = spawn(command, args, {
 			cwd: process.cwd(),
-			shell: process.platform === 'win32',
+			shell: true,
 			windowsHide: true,
 			stdio: 'inherit',
 			...options,
