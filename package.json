@@ -1,0 +1,60 @@
+{
+  "name": "pkg-play",
+  "version": "0.0.1",
+  "description": "A package to inline the package.json file and use small single files for js automation and simple tasks.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "webpack",
+    "build:prod": "webpack --env.prod",
+    "test": "jest",
+    "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,css,md}\"",
+    "lint": "eslint . --cache --fix --ext .ts,.tsx",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepare": "run-s clean build:prod lint format test",
+    "clean": "rimraf dist/ .eslintcache"
+  },
+  "bin": {
+    "pkgplay": "./dist/index.js"
+  },
+  "keywords": [
+    "inline",
+    "package.json"
+  ],
+  "files": [
+    "dist/**/*"
+  ],
+  "author": "Roee Shapira",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.5",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.6",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^1.42.2",
+    "ts-jest": "^26.0.0",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix",
+    "*.{ts,tsx,css,md}": "prettier --write",
+    "**/package.json": "sort-package-json"
+  }
+}
