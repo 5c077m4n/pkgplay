@@ -1,5 +1,5 @@
 {
-  "name": "pkg-play",
+  "name": "pkgplay",
   "version": "0.0.7",
   "description": "A package to inline the package.json file and use small single files for js automation and simple tasks.",
   "keywords": [
