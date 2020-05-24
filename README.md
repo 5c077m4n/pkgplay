@@ -13,6 +13,19 @@ Well, now you have your answer! All you need to do is create a file (say `index.
 | `-p` or `--path`   | Get the requested file (may be remote) - default: `./index.js` |
 | `-s` or `--script` | The script that you want to run - default: `start`             |
 
-[Example](examples/1.js)
+
+```javascript
+/**! package.json
+ * {
+ *      "dependencies": {
+ *          "uuid": "8.1.0"
+ *      }
+ * }
+ */
+
+const { v4: uuidv4 } = require('uuid');
+
+console.log(uuidv4());
+```
 
 *Happy scripting! ;)*
