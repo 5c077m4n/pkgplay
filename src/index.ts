@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { promises as fs } from 'fs';
 import { tmpdir } from 'os';
 import * as path from 'path';

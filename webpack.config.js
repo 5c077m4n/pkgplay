@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { BannerPlugin } = require('webpack');
 
 module.exports = function (env = {}, argv) {
 	return {
@@ -23,5 +25,11 @@ module.exports = function (env = {}, argv) {
 			filename: 'index.js',
 			path: path.resolve(__dirname, './dist'),
 		},
+		plugins: [
+			new BannerPlugin({
+				banner: '#!/usr/bin/env node',
+				raw: true,
+			}),
+		],
 	};
 };
