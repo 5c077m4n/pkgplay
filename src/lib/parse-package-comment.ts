@@ -1,10 +1,11 @@
 export function parsePackageComment(fileContent: string): any {
-	const [
-		_,
-		packageJsonString,
-	] = /\/\*\*!\s*package\.json(?:.|\n)*?(\{(?:.|\n)*\})(?:.|\n)*\*\//.exec(
-		fileContent
+	const matches =
+		/\/\*\*!\s*package\.json(?:.|\n)*?(\{(?:.|\n)*\})(?:.|\n)*\*\//.exec(
+			fileContent
+		) ?? [];
+	const packageJsonString = matches[1];
+	const packageJson = JSON.parse(
+		packageJsonString[1].replace(/^\s*\*/gm, '')
 	);
-	const packageJson = JSON.parse(packageJsonString.replace(/^\s*\*/gm, ''));
 	return packageJson;
 }
