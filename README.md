@@ -1,6 +1,8 @@
 # pkgplay
 
-![Node.js CI Testing Suite](https://github.com/5c077m4n/pkg-play/workflows/Node.js%20CI%20Testing%20Suite/badge.svg)
+![Linux Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Linux%20Testing%20Suite/badge.svg)
+![MacOS Test Suite](https://github.com/5c077m4n/pkgplay/workflows/MacOS%20Testing%20Suite/badge.svg)
+![Windows Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Windows%20Testing%20Suite/badge.svg)
 
 A cli tool to run whole npm scripts without having to `npm init` or `npm install` anything!
 
