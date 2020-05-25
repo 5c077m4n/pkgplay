@@ -43,5 +43,6 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		await run('npm', ['run', cliArgs.run], { cwd: tempDirPath });
 	} catch (err) {
 		console.error(err);
+                process.exit(1);
 	}
 })();
