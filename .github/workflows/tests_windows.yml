@@ -1,4 +1,4 @@
-name: Node.js CI Testing Suite
+name: Windows Testing Suite
 
 env:
   CLICOLOR_FORCE: 1
@@ -11,13 +11,12 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [10.x, 12.x, 14.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+      - name: Use Node.js ${{ matrix.node-version }} on Windows
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
