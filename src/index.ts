@@ -29,6 +29,7 @@ import { parsePackageComment } from './lib/parse-package-comment';
 			start: 'node ./index.js',
 		};
 		packageJson.name = packageJson.name ?? 'tmp-pkg';
+		if (cliArgs.module) packageJson.type = 'module';
 
 		await Promise.all([
 			fs.writeFile(
