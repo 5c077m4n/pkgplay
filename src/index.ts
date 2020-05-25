@@ -13,16 +13,19 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		const tempDirPath: string = await fs.mkdtemp(
 			path.join(tmpdir(), path.sep)
 		);
+		if (cliArgs.debug) console.log('tempDirPath:', tempDirPath);
 
 		let fileContent: string;
 		if (/^https?:\/\//.test(cliArgs.path)) {
 			fileContent = await httpGet(cliArgs.path);
 		} else {
 			const filePath = path.resolve(path.normalize(cliArgs.path));
+			if (cliArgs.debug) console.log('filePath:', filePath);
+
 			const fileContentBuffer = await fs.readFile(filePath);
 			fileContent = fileContentBuffer.toString();
 		}
-		if (cliArgs.debug) console.log(fileContent);
+		if (cliArgs.debug) console.log('fileContent:', fileContent);
 
 		const packageJson: any = parsePackageComment(fileContent);
 		packageJson.scripts = packageJson.scripts ?? {
@@ -30,7 +33,7 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		};
 		packageJson.name = packageJson.name ?? 'tmp-pkg';
 		if (cliArgs.module) packageJson.type = 'module';
-		if (cliArgs.debug) console.log(packageJson);
+		if (cliArgs.debug) console.log('packageJson:', packageJson);
 
 		await Promise.all([
 			fs.writeFile(
