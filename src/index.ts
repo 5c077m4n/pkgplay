@@ -23,6 +23,7 @@ import { parsePackageComment } from './lib/parse-package-comment';
 			);
 			fileContent = fileContentBuffer.toString();
 		}
+		if (cliArgs.debug) console.log(fileContent);
 
 		const packageJson: any = parsePackageComment(fileContent);
 		packageJson.scripts = packageJson.scripts ?? {
@@ -30,6 +31,7 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		};
 		packageJson.name = packageJson.name ?? 'tmp-pkg';
 		if (cliArgs.module) packageJson.type = 'module';
+		if (cliArgs.debug) console.log(packageJson);
 
 		await Promise.all([
 			fs.writeFile(
@@ -43,6 +45,6 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		await run('npm', ['run', cliArgs.run], { cwd: tempDirPath });
 	} catch (err) {
 		console.error(err);
-                process.exit(1);
+		process.exit(1);
 	}
 })();
