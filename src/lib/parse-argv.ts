@@ -12,7 +12,6 @@ export function parseCliArgs(
 	return {
 		path: argvObject['--path'] || argvObject['-p'] || './index.js',
 		run: argvObject['--script'] || argvObject['-s'] || 'start',
-		module: argvObject['--module'] || argvObject['-m'],
-			
+		module: argvObject['--module'] || argvObject['-m'],	
 	};
 }
