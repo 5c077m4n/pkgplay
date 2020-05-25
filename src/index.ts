@@ -18,9 +18,8 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		if (/^https?:\/\//.test(cliArgs.path)) {
 			fileContent = await httpGet(cliArgs.path);
 		} else {
-			const fileContentBuffer = await fs.readFile(
-				path.resolve(cliArgs.path)
-			);
+			const filePath = path.resolve(path.normalize(cliArgs.path));
+			const fileContentBuffer = await fs.readFile(filePath);
 			fileContent = fileContentBuffer.toString();
 		}
 		if (cliArgs.debug) console.log(fileContent);
