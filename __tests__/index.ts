@@ -10,7 +10,7 @@ describe('Integration tests', () => {
 
 	test('NPX test', async () => {
 		expect.hasAssertions();
-		expect(
+		await expect(
 			run('npx', ['pkgplay', '-p=examples/1.js'])
 		).resolves.toBeUndefined();
 	}, 30_000);
