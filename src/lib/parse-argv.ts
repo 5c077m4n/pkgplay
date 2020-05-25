@@ -1,6 +1,6 @@
 export function parseCliArgs(
 	argvRaw: string[] = []
-): { path: string, run: string } {
+): { path: string, run: string, module: boolean } {
 	const argvObject = argvRaw
 		.slice(2)
 		.map(arg => arg.split('='))
