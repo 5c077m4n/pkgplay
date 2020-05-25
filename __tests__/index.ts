@@ -12,4 +12,13 @@ describe('Integration tests', () => {
 			run('npx', ['pkgplay', '-p=examples/1.js'])
 		).resolves.toBeUndefined();
 	}, 30_000);
+
+	test('NPX test remote file', () => {
+		expect(
+			run('npx', [
+				'pkgplay',
+				'-p=https://raw.githubusercontent.com/5c077m4n/pkgplay/master/examples/1.js',
+			])
+		).resolves.toBeUndefined();
+	}, 30_000);
 });

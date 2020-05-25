@@ -33,7 +33,7 @@ console.log(uuidv4());
 And then:
 
 ```bash
-pkgplay -p=<filepath>
+npx pkgplay -p=<filepath>
 ```
 
 *Happy scripting! ;)*
