@@ -7,7 +7,7 @@ module.exports = function (env = {}, argv) {
 	return {
 		entry: './src/index.ts',
 		mode: env.prod ? 'production' : 'development',
-		devtool: false,
+		devtool: env.prod ? false : 'inline-cheap-source-map',
 		target: 'node',
 		module: {
 			rules: [
