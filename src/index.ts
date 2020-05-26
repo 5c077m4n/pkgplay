@@ -7,7 +7,7 @@ import { run } from './lib/run-command';
 import { httpGet } from './lib/http-get';
 import { parsePackageComment } from './lib/parse-package-comment';
 
-export async function runPkg() {
+export async function runPkg(): Promise<void> {
 	try {
 		const cliArgs = parseCliArgs(process.argv);
 		const tempDirPath: string = await fs.mkdtemp(
