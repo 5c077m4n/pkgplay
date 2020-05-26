@@ -1,4 +1,4 @@
-import { parseCliArgs } from './parse-argv';
+import { parseCliArgs } from '../parse-argv';
 
 describe('Parsing CLI args', () => {
 	test('Should default object parse well', () => {
