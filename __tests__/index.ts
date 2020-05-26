@@ -8,14 +8,14 @@ describe('Integration tests', () => {
 		).resolves.toBeUndefined();
 	}, 30_000);
 
-	test('NPX test', async () => {
+	test('NPX test - local file', async () => {
 		expect.hasAssertions();
 		await expect(
 			run('npx', ['pkgplay', '-p="examples/1.js"', '--debug'])
 		).resolves.toBeUndefined();
 	}, 30_000);
 
-	test('NPX test remote file', async () => {
+	test('NPX test - remote file', async () => {
 		expect.hasAssertions();
 		await expect(
 			run('npx', [
