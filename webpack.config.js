@@ -5,7 +5,7 @@ const { BannerPlugin } = require('webpack');
 
 module.exports = function (env = {}, argv) {
 	return {
-		entry: './src/index.ts',
+		entry: './src/bin.ts',
 		mode: env.prod ? 'production' : 'development',
 		devtool: env.prod ? false : 'inline-cheap-source-map',
 		target: 'node',

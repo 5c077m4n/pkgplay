@@ -7,7 +7,7 @@ import { run } from './lib/run-command';
 import { httpGet } from './lib/http-get';
 import { parsePackageComment } from './lib/parse-package-comment';
 
-(async function main() {
+export async function runPkg() {
 	try {
 		const cliArgs = parseCliArgs(process.argv);
 		const tempDirPath: string = await fs.mkdtemp(
@@ -49,4 +49,4 @@ import { parsePackageComment } from './lib/parse-package-comment';
 		console.error(err);
 		process.exit(1);
 	}
-})();
+}
