@@ -1,3 +1,5 @@
 import { runPkg } from './index';
+import { parseCliArgs } from './lib/parse-argv';
 
-runPkg();
+const cliArgs = parseCliArgs(process.argv);
+runPkg(cliArgs);
