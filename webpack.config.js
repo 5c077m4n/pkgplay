@@ -1,11 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { BannerPlugin } = require('webpack');
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 module.exports = function (env = {}, argv) {
 	return {
-		entry: './src/bin.ts',
+		entry: {
+			index: './src/index.ts',
+			cli: './src/bin.ts',
+		},
 		mode: env.prod ? 'production' : 'development',
 		devtool: env.prod ? false : 'inline-cheap-source-map',
 		target: 'node',
@@ -22,7 +25,7 @@ module.exports = function (env = {}, argv) {
 			extensions: ['.tsx', '.ts', '.js'],
 		},
 		output: {
-			filename: 'index.js',
+			filename: '[name].js',
 			path: path.resolve(__dirname, './dist'),
 		},
 		plugins: [

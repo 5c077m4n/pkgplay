@@ -8,10 +8,8 @@
   ],
   "license": "MIT",
   "author": "Roee Shapira",
-  "main": "src/index.js",
-  "bin": {
-    "pkgplay": "./dist/index.js"
-  },
+  "main": "./dist/index.js",
+  "bin": "./dist/cli.js",
   "files": [
     "dist/**/*"
   ],
