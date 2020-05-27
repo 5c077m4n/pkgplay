@@ -23,7 +23,8 @@
     "start": "node dist/bin.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postversion": "git push && git push --tags --no-verify"
   },
   "husky": {
     "hooks": {
