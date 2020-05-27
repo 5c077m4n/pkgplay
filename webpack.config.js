@@ -7,7 +7,7 @@ module.exports = function (env = {}, argv) {
 	return {
 		entry: {
 			index: './src/index.ts',
-			cli: './src/bin.ts',
+			bin: './src/bin.ts',
 		},
 		mode: env.prod ? 'production' : 'development',
 		devtool: env.prod ? false : 'inline-cheap-source-map',

@@ -9,7 +9,7 @@
   "license": "MIT",
   "author": "Roee Shapira",
   "main": "./dist/index.js",
-  "bin": "./dist/cli.js",
+  "bin": "./dist/bin.js",
   "files": [
     "dist/**/*"
   ],
@@ -20,7 +20,7 @@
     "format": "prettier --write \"src/**/*\"",
     "lint": "eslint --cache --fix \"src/**/*\"",
     "prepare": "run-s clean build:prod lint format test",
-    "start": "node dist/index.js",
+    "start": "node dist/bin.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
