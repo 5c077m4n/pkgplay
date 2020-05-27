@@ -1,4 +1,4 @@
-import { httpGet } from './http-get';
+import { httpGet } from '../http-get';
 
 describe('Test the http getter', () => {
 	test('Should get a file successfully', async () => {

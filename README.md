@@ -3,6 +3,7 @@
 ![Linux Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Linux%20Testing%20Suite/badge.svg)
 ![MacOS Test Suite](https://github.com/5c077m4n/pkgplay/workflows/MacOS%20Testing%20Suite/badge.svg)
 ![Windows Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Windows%20Testing%20Suite/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/5c077m4n/pkgplay/badge.svg?branch=master)](https://coveralls.io/github/5c077m4n/pkgplay?branch=master)
 
 A cli tool to run whole npm scripts without having to `npm init` or `npm install` anything!
 

@@ -1,4 +1,4 @@
-import { run } from './run-command';
+import { run } from '../run-command';
 
 describe('Run command', () => {
 	test('Should run the command', async () => {

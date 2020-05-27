@@ -1,4 +1,4 @@
-import { generateChecksum } from './checksum';
+import { generateChecksum } from '../checksum';
 
 describe('Test Checksum generation', () => {
 	test('Sanity', () => {

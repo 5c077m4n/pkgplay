@@ -2,14 +2,13 @@ import { promises as fs } from 'fs';
 import { tmpdir } from 'os';
 import * as path from 'path';
 
-import { parseCliArgs } from './lib/parse-argv';
+import type { CliArgs } from './lib/parse-argv';
 import { run } from './lib/run-command';
 import { httpGet } from './lib/http-get';
 import { parsePackageComment } from './lib/parse-package-comment';
 
-export async function runPkg(): Promise<void> {
+export async function runPkg(cliArgs: CliArgs): Promise<void> {
 	try {
-		const cliArgs = parseCliArgs(process.argv);
 		const tempDirPath: string = await fs.mkdtemp(
 			path.join(tmpdir(), path.sep)
 		);

@@ -1,4 +1,4 @@
-import { parsePackageComment } from './parse-package-comment';
+import { parsePackageComment } from '../parse-package-comment';
 
 const packageJsonComment1 = `
 	/**! package.json
