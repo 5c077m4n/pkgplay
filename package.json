@@ -24,7 +24,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "postversion": "git push && git push --tags --no-verify"
+    "postversion": "git push --tags --no-verify"
   },
   "husky": {
     "hooks": {
