@@ -1,6 +1,10 @@
 {
   "name": "pkgplay",
+<<<<<<< HEAD
   "version": "0.0.19",
+=======
+  "version": "0.0.21",
+>>>>>>> eaeda47e6359e0f408d32dc22d3f2f227970e7d6
   "description": "A package to inline the package.json file and use small single files for js automation and simple tasks.",
   "keywords": [
     "inline",
@@ -9,7 +13,7 @@
   "license": "MIT",
   "author": "Roee Shapira",
   "main": "./dist/index.js",
-  "bin": "./dist/cli.js",
+  "bin": "./dist/bin.js",
   "files": [
     "dist/**/*"
   ],
@@ -20,10 +24,11 @@
     "format": "prettier --write \"src/**/*\"",
     "lint": "eslint --cache --fix \"src/**/*\"",
     "prepare": "run-s clean build:prod lint format test",
-    "start": "node dist/index.js",
+    "start": "node dist/bin.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postversion": "git push --tags --no-verify"
   },
   "husky": {
     "hooks": {
