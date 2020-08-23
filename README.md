@@ -1,8 +1,8 @@
 # pkgplay
 
-![Linux Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Linux%20Testing%20Suite/badge.svg)
-![MacOS Test Suite](https://github.com/5c077m4n/pkgplay/workflows/MacOS%20Testing%20Suite/badge.svg)
-![Windows Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Windows%20Testing%20Suite/badge.svg)
+[![Linux Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Linux%20Testing%20Suite/badge.svg)](https://github.com/5c077m4n/pkgplay/actions?query=workflow%3A%22Linux+Test+Suite%22)
+[![MacOS Test Suite](https://github.com/5c077m4n/pkgplay/workflows/MacOS%20Testing%20Suite/badge.svg)](https://github.com/5c077m4n/pkgplay/actions?query=workflow%3A%22MacOS+Test+Suite%22)
+[![Windows Test Suite](https://github.com/5c077m4n/pkgplay/workflows/Windows%20Testing%20Suite/badge.svg)](https://github.com/5c077m4n/pkgplay/actions?query=workflow%3A%22Windows+Test+Suite%22)
 [![Coverage Status](https://coveralls.io/repos/github/5c077m4n/pkgplay/badge.svg?branch=master)](https://coveralls.io/github/5c077m4n/pkgplay?branch=master)
 
 A cli tool to run whole npm scripts without having to `npm init` or `npm install` anything!
