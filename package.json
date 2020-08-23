@@ -8,6 +8,9 @@
   ],
   "license": "MIT",
   "author": "Roee Shapira",
+  "exports": {
+    "default": "./dist/bin.js"
+  },
   "main": "./dist/index.js",
   "bin": "./dist/bin.js",
   "files": [
@@ -19,7 +22,7 @@
     "clean": "rimraf dist/ .eslintcache",
     "format": "prettier --write \"src/**/*\"",
     "lint": "eslint --cache --fix \"src/**/*\"",
-    "prepare": "run-s clean build:prod lint format test",
+    "prepare": "run-s clean lint format build:prod test",
     "start": "node dist/bin.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
