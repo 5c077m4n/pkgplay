@@ -9,7 +9,7 @@
   "license": "MIT",
   "author": "Roee Shapira",
   "exports": {
-    "default": "./dist/bin.js"
+    "default": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "bin": "./dist/bin.js",
