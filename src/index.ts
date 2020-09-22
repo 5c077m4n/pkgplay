@@ -12,19 +12,20 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 		const tempDirPath: string = await fs.mkdtemp(
 			path.join(tmpdir(), path.sep)
 		);
-		if (cliArgs.debug) console.log('tempDirPath:', tempDirPath);
+		if (cliArgs.debug) console.debug('tempDirPath:', tempDirPath);
 
 		let fileContent: string;
 		if (/^https?:\/\//.test(cliArgs.path)) {
 			fileContent = await httpGet(cliArgs.path);
 		} else {
 			const filePath = path.resolve(path.normalize(cliArgs.path));
-			if (cliArgs.debug) console.log('filePath:', filePath);
+			if (cliArgs.debug) console.debug('filePath:', filePath);
 
 			const fileContentBuffer = await fs.readFile(filePath);
 			fileContent = fileContentBuffer.toString();
 		}
-		if (cliArgs.debug) console.log('fileContent:', fileContent);
+		fileContent = `process.chdir(${process.cwd()});\n${fileContent}`;
+		if (cliArgs.debug) console.debug('fileContent:', fileContent);
 
 		const packageJson: any = parsePackageComment(fileContent);
 		packageJson.scripts = packageJson.scripts ?? {
@@ -32,7 +33,7 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 		};
 		packageJson.name = packageJson.name ?? 'tmp-pkg';
 		if (cliArgs.module) packageJson.type = 'module';
-		if (cliArgs.debug) console.log('packageJson:', packageJson);
+		if (cliArgs.debug) console.debug('packageJson:', packageJson);
 
 		await Promise.all([
 			fs.writeFile(
