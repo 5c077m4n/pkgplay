@@ -5,7 +5,7 @@ export function injectDirChange(
 ): string {
 	const chdir = `process.chdir("${cwd}");\\n`;
 	const chDirName = `__dirname = "${cwd}";\\n`;
-	const chFileName = `__filename = "${cwd}" + "/${fileName}";\\n`;
+	const chFileName = `__filename = "${cwd}" + "/${fileName}";\\n\\n`;
 
 	return `${chdir}${chDirName}${chFileName}${fileContent}`;
 }
