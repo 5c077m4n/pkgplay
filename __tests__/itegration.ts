@@ -23,6 +23,17 @@ describe('Integration tests', () => {
 				])
 			).resolves.toBeUndefined();
 		}, 30_000);
+
+		test('Use a local file', async () => {
+			expect.hasAssertions();
+			await expect(
+				run('node', [
+					'./dist/index.js',
+					'-p="examples/find-local-file.js"',
+					'--debug',
+				])
+			).resolves.toBeUndefined();
+		}, 30_000);
 	});
 
 	describe('NPM dist', () => {
