@@ -22,16 +22,18 @@
     "clean": "rimraf dist/ .eslintcache",
     "format": "prettier --write \"src/**/*\"",
     "lint": "eslint --cache --fix \"src/**/*\"",
+    "lintstaged": "lint-staged",
     "prepare": "run-s clean lint format build:prod test",
     "start": "node dist/bin.js",
     "test": "jest",
+    "test:change": "jest --onlyChanged",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "postversion": "git push --tags --no-verify"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "run-s lintstaged test:change",
       "pre-push": "run-s build:prod test"
     }
   },

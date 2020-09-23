@@ -25,7 +25,7 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 			const fileContentBuffer = await fs.readFile(filePath);
 			fileContent = fileContentBuffer.toString();
 		}
-		fileContent = injectDirChange(fileContent);
+		fileContent = injectDirChange(fileContent, path.basename(cliArgs.path));
 		if (cliArgs.debug) console.debug('fileContent:', fileContent);
 
 		const packageJson: any = parsePackageComment(fileContent);
@@ -41,7 +41,10 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 				path.join(tempDirPath, './package.json'),
 				JSON.stringify(packageJson)
 			),
-			fs.writeFile(path.join(tempDirPath, './index.js'), fileContent),
+			fs.writeFile(
+				path.join(tempDirPath, `./${path.basename(cliArgs.path)}`),
+				fileContent
+			),
 		]);
 
 		await run('npm', ['install', '.', '--silent'], { cwd: tempDirPath });
