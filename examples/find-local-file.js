@@ -5,7 +5,7 @@
 const path = require('path');
 const fs = require('fs');
 
-fs.readFile(path.resolve('./examples/find-local-file.json'), (error, file) => {
+fs.readFile(path.resolve('./find-local-file.json'), (error, file) => {
 	if (error) {
 		console.error(error);
 	} else {

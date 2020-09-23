@@ -16,17 +16,23 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 		if (cliArgs.debug) console.debug('tempDirPath:', tempDirPath);
 
 		let fileContent: string;
+		const basename: string = path.basename(cliArgs.path);
+
 		if (/^https?:\/\//.test(cliArgs.path)) {
 			fileContent = await httpGet(cliArgs.path);
+			fileContent = injectDirChange(fileContent, basename);
 		} else {
 			const filePath = path.resolve(path.normalize(cliArgs.path));
 			if (cliArgs.debug) console.debug('filePath:', filePath);
 
 			const fileContentBuffer = await fs.readFile(filePath);
 			fileContent = fileContentBuffer.toString();
+			fileContent = injectDirChange(
+				fileContent,
+				basename,
+				path.dirname(filePath)
+			);
 		}
-		const basename: string = path.basename(cliArgs.path);
-		fileContent = injectDirChange(fileContent, basename);
 		if (cliArgs.debug) console.debug('fileContent:', fileContent);
 
 		const packageJson: any = parsePackageComment(fileContent);
