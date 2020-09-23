@@ -41,7 +41,7 @@ const packageJsonComment3 = `
 const badPackageJsonComment1 = `
 	/**! package.json
 	 *  {
-	 * 		"name": "the good comment",
+	 * 		"name": "the bad comment",
 	 *  }
 	 */
 
