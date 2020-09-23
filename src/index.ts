@@ -25,12 +25,13 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 			const fileContentBuffer = await fs.readFile(filePath);
 			fileContent = fileContentBuffer.toString();
 		}
-		fileContent = injectDirChange(fileContent, path.basename(cliArgs.path));
+		const basename: string = path.basename(cliArgs.path);
+		fileContent = injectDirChange(fileContent, basename);
 		if (cliArgs.debug) console.debug('fileContent:', fileContent);
 
 		const packageJson: any = parsePackageComment(fileContent);
 		packageJson.scripts = packageJson.scripts ?? {
-			start: 'node ./index.js',
+			start: `node ./${basename}`,
 		};
 		packageJson.name = packageJson.name ?? 'tmp-pkg';
 		if (cliArgs.module) packageJson.type = 'module';
@@ -41,10 +42,7 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 				path.join(tempDirPath, './package.json'),
 				JSON.stringify(packageJson)
 			),
-			fs.writeFile(
-				path.join(tempDirPath, `./${path.basename(cliArgs.path)}`),
-				fileContent
-			),
+			fs.writeFile(path.join(tempDirPath, `./${basename}`), fileContent),
 		]);
 
 		await run('npm', ['install', '.', '--silent'], { cwd: tempDirPath });
