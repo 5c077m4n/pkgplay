@@ -6,6 +6,7 @@ import type { CliArgs } from './lib/parse-argv';
 import { run } from './lib/run-command';
 import { httpGet } from './lib/http-get';
 import { parsePackageComment } from './lib/parse-package-comment';
+import { injectDirChange } from './lib/inject-dir-change';
 
 export async function runPkg(cliArgs: CliArgs): Promise<void> {
 	try {
@@ -24,7 +25,7 @@ export async function runPkg(cliArgs: CliArgs): Promise<void> {
 			const fileContentBuffer = await fs.readFile(filePath);
 			fileContent = fileContentBuffer.toString();
 		}
-		fileContent = `process.chdir(${process.cwd()});\n${fileContent}`;
+		fileContent = injectDirChange(fileContent);
 		if (cliArgs.debug) console.debug('fileContent:', fileContent);
 
 		const packageJson: any = parsePackageComment(fileContent);
